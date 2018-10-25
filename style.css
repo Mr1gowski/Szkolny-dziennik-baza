@@ -12,9 +12,9 @@ body
 		margin-right: auto;
 		margin-top: auto;
 
-		
+
 	}
-	
+
 
 #logo
 	{
@@ -22,38 +22,14 @@ body
 		background-color: #d1d2df;
 		text-align: center;
 		height: 150px;
-		width:79%;
+	  width: 90%;
 		float:left;
-		
-	
-			
+
+
+
 	}
-	#logowanie
-	{
-		
-		background-color: #696969;
-		color:#d1d2df;
-		text-align: center;
-		float:right;
-		
-		height: 150px;
-		width:20%;
-		
-			display: block;
-		text-decoration: none;
-	}
-	#loguj
-	{
-		background-color: #696969;
-		color:#d1d2df;
-		text-align: center;
-		height:50%;
-		
-		display: block;
-		text-decoration: none;
-		
-	}
-	
+
+
 
 #nav
 	{
@@ -62,10 +38,10 @@ body
 		width: 15%;
 		height: 625px;
 	    color: white;
-	
+
 		margin-top: 10px;
 		min-width: 100px;
-	
+
 	}
 
 #content
@@ -74,10 +50,10 @@ body
 		width: 85%;
 		font-size: 15px;
 		margin-top: 10px;
-		
 
 
-		
+
+
 	}
 
 #strona_glowna
@@ -90,10 +66,10 @@ body
 		background-color: #696969;
 		display: block;
 		text-decoration: none;
-		
+
 	}
 
-	
+
 #plan
 	{
 		float: bottom;
@@ -104,7 +80,7 @@ body
 		background-color: #696969;
 		display: block;
 		text-decoration: none;
-		
+
 	}
 	#terminarz
 	{
@@ -126,7 +102,7 @@ body
 		color: #696969;
 		text-align: center;
 		background-color: #d1d2df;
-		display: block;	
+		display: block;
 		text-decoration: none;
 	}
 
@@ -142,20 +118,35 @@ body
 		text-decoration: none;
 	}
 
+  #wyloguj
+  {
+    float: bottom;
+    margin: 2px;
+    height: 50px;
+    color: #696969;
+    text-align: center;
+    background-color: #d1d2df;
+    display: block;
+    text-decoration: none;
+
+  }
+
+
 #kontakt
 	{
 		float: bottom;
-		height: 400px;
+		height: 300px;
+
 		text-align: center;
-		color: #696969;
+		color: #d1d2df; 
 		font-size: 16px;
-		background-color: #d1d2df;
+		background-color:#696969;
 		margin: 3px;
 		display: block;
 		text-decoration: none;
 	}
-	
-	
+
+
 	#szycie_na_miare
 	{
 		margin-left: 5%;
@@ -165,7 +156,7 @@ body
 		font-size: 18px;
 		height: 60%;
 		background-color: rgba( 209, 210, 223, 0.8);
-		
+
 	}
 
 #przerobki_krawieckie
@@ -177,7 +168,7 @@ body
 		font-size: 18px;
 		height: 60%;
 		background-color: rgba( 209, 210, 223, 0.8);
-		
+
 	}
 
 #dodatki_slubne
@@ -188,9 +179,9 @@ body
 		height: 60%;
 		font-size: 18px;
 		background-color: rgba(  209, 210, 223, 0.8);
-		
+
 	}
-	
+
 #a
 	{
 	clear:both;
@@ -202,10 +193,10 @@ body
 	padding: 5%;
 	font-size: 40px;
 
-	}	
-	
+	}
+
 	#footer
-	{	
+	{
 		margin: 3px;
 		margin-top: 10px;
 		clear: both;
@@ -225,7 +216,7 @@ span.featherlight-previous {
     cursor: pointer;
 }
 
-	
+
 span.featherlight-next {
     position: absolute;
     top: 50%;
