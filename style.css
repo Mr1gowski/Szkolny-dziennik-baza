@@ -22,14 +22,42 @@ body
 		background-color: #d1d2df;
 		text-align: center;
 		height: 150px;
+		width:79%;
+		float:left;
 		
-		
+	
 			
 	}
+	#logowanie
+	{
+		
+		background-color: #696969;
+		color:#d1d2df;
+		text-align: center;
+		float:right;
+		
+		height: 150px;
+		width:20%;
+		
+			display: block;
+		text-decoration: none;
+	}
+	#loguj
+	{
+		background-color: #696969;
+		color:#d1d2df;
+		text-align: center;
+		height:50%;
+		
+		display: block;
+		text-decoration: none;
+		
+	}
+	
 
 #nav
 	{
-	
+	float:left;
 		float: left;
 		width: 15%;
 		height: 625px;
@@ -65,7 +93,20 @@ body
 		
 	}
 
-	#oferta
+	
+#plan
+	{
+		float: bottom;
+		margin: 3px;
+		height: 50px;
+		text-align: center;
+		color: #d1d2df;
+		background-color: #696969;
+		display: block;
+		text-decoration: none;
+		
+	}
+	#terminarz
 	{
 		float: bottom;
 		margin: 3px;
@@ -77,26 +118,26 @@ body
 		text-decoration: none;
 	}
 
-#galeria
+#oceny
 	{
 		float: bottom;
 		margin: 2px;
 		height: 50px;
-		color: #d1d2df;
+		color: #696969;
 		text-align: center;
-		background-color: #696969;
+		background-color: #d1d2df;
 		display: block;	
 		text-decoration: none;
 	}
 
-#dojazd
+#nieobecnosci
 	{
 		float: bottom;
 		display: block;
 		height: 50px;
 		text-align: center;
-		color: #696969;
-		background-color: #d1d2df;
+		color: #d1d2df;
+		background-color: #696969;
 		margin: 3px;
 		text-decoration: none;
 	}
@@ -106,9 +147,9 @@ body
 		float: bottom;
 		height: 400px;
 		text-align: center;
-		color: #d1d2df;
+		color: #696969;
 		font-size: 16px;
-		background-color: #696969;
+		background-color: #d1d2df;
 		margin: 3px;
 		display: block;
 		text-decoration: none;
