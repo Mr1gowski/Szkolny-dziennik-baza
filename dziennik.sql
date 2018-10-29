@@ -21,7 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `dziennik`
 --
+-- -------------------------------------------------------
 
+-- sciana i tabela plan
+
+CREATE table planlekcji
+(
+idplan int AUTO_INCREMENT PRIMARY KEY NOT null,
+    idklasa int,
+    dzien int(6),
+    idprzedmiot int,
+    FOREIGN KEY (idklasa) REFERENCES klasa(idklasa),
+    FOREIGN KEY (idprzedmiot) REFERENCES przedmiot(idprzedmiot)
+);
 -- --------------------------------------------------------
 
 --
