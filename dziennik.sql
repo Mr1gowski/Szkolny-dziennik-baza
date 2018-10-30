@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 28 Paź 2018, 17:32
--- Wersja serwera: 10.1.30-MariaDB
--- Wersja PHP: 7.2.2
+-- Czas generowania: 30 Paź 2018, 08:20
+-- Wersja serwera: 10.1.16-MariaDB
+-- Wersja PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -97,6 +95,19 @@ CREATE TABLE `przedmiot` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `tematy`
+--
+
+CREATE TABLE `tematy` (
+  `idtematy` int(11) NOT NULL,
+  `temat` varchar(120) DEFAULT NULL,
+  `idklasa` int(11) DEFAULT NULL,
+  `idnauczyciel` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `uczeń`
 --
 
@@ -107,50 +118,38 @@ CREATE TABLE `uczeń` (
   `idklasa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `uzytkownicy`
---
-
-CREATE TABLE `uzytkownicy` (
-  `id` int(11) NOT NULL,
-  `login` varchar(20) NOT NULL,
-  `haslo` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indeksy dla tabeli `klasa`
+-- Indexes for table `klasa`
 --
 ALTER TABLE `klasa`
   ADD PRIMARY KEY (`idklasa`);
 
 --
--- Indeksy dla tabeli `klasa_przedmiot`
+-- Indexes for table `klasa_przedmiot`
 --
 ALTER TABLE `klasa_przedmiot`
   ADD KEY `idklasa` (`idklasa`),
   ADD KEY `idprzedmiot` (`idprzedmiot`);
 
 --
--- Indeksy dla tabeli `nauczyciel`
+-- Indexes for table `nauczyciel`
 --
 ALTER TABLE `nauczyciel`
   ADD PRIMARY KEY (`idnauczyciel`);
 
 --
--- Indeksy dla tabeli `nauczyciel_klasa`
+-- Indexes for table `nauczyciel_klasa`
 --
 ALTER TABLE `nauczyciel_klasa`
   ADD KEY `idnauczyciel` (`idnauczyciel`),
   ADD KEY `idklasa` (`idklasa`);
 
 --
--- Indeksy dla tabeli `oceny`
+-- Indexes for table `oceny`
 --
 ALTER TABLE `oceny`
   ADD PRIMARY KEY (`idoceny`),
@@ -160,24 +159,26 @@ ALTER TABLE `oceny`
   ADD KEY `idnauczyciel` (`idnauczyciel`);
 
 --
--- Indeksy dla tabeli `przedmiot`
+-- Indexes for table `przedmiot`
 --
 ALTER TABLE `przedmiot`
   ADD PRIMARY KEY (`idprzedmiot`),
   ADD KEY `idnauczyciel` (`idnauczyciel`);
 
 --
--- Indeksy dla tabeli `uczeń`
+-- Indexes for table `tematy`
+--
+ALTER TABLE `tematy`
+  ADD PRIMARY KEY (`idtematy`),
+  ADD KEY `idklasa` (`idklasa`),
+  ADD KEY `idnauczyciel` (`idnauczyciel`);
+
+--
+-- Indexes for table `uczeń`
 --
 ALTER TABLE `uczeń`
   ADD PRIMARY KEY (`iduczeń`),
   ADD KEY `idklasa` (`idklasa`);
-
---
--- Indeksy dla tabeli `uzytkownicy`
---
-ALTER TABLE `uzytkownicy`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -188,37 +189,31 @@ ALTER TABLE `uzytkownicy`
 --
 ALTER TABLE `klasa`
   MODIFY `idklasa` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `nauczyciel`
 --
 ALTER TABLE `nauczyciel`
   MODIFY `idnauczyciel` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `oceny`
 --
 ALTER TABLE `oceny`
   MODIFY `idoceny` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `przedmiot`
 --
 ALTER TABLE `przedmiot`
   MODIFY `idprzedmiot` int(11) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT dla tabeli `tematy`
+--
+ALTER TABLE `tematy`
+  MODIFY `idtematy` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `uczeń`
 --
 ALTER TABLE `uczeń`
   MODIFY `iduczeń` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `uzytkownicy`
---
-ALTER TABLE `uzytkownicy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Ograniczenia dla zrzutów tabel
 --
@@ -253,11 +248,17 @@ ALTER TABLE `przedmiot`
   ADD CONSTRAINT `przedmiot_ibfk_1` FOREIGN KEY (`idnauczyciel`) REFERENCES `nauczyciel` (`idnauczyciel`);
 
 --
+-- Ograniczenia dla tabeli `tematy`
+--
+ALTER TABLE `tematy`
+  ADD CONSTRAINT `tematy_ibfk_1` FOREIGN KEY (`idklasa`) REFERENCES `klasa` (`idklasa`),
+  ADD CONSTRAINT `tematy_ibfk_2` FOREIGN KEY (`idnauczyciel`) REFERENCES `nauczyciel` (`idnauczyciel`);
+
+--
 -- Ograniczenia dla tabeli `uczeń`
 --
 ALTER TABLE `uczeń`
   ADD CONSTRAINT `uczeń_ibfk_1` FOREIGN KEY (`idklasa`) REFERENCES `klasa` (`idklasa`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
