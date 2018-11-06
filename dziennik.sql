@@ -279,3 +279,111 @@ ALTER TABLE `uwagi`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- inserty danych
+
+
+
+
+
+
+insert into nauczyciel (idnauczyciel,imie,nazwisko) VALUES
+('1','Jan','Kowalski'),
+('2','Ewa','Linda'),
+('3','Mikolaj','Majewski'),
+('4','Magda','Zwara'),
+('5','Daniel','Szada'),
+('6','Anita','Red');
+
+
+
+INSERT into przedmiot (idprzedmiot,przedmiot,idnauczyciel) VALUES
+('1','Matematyka','2'),
+('2','Polski','3'),
+('3','Angielski','4'),
+('4','Niemiecki','1'),
+('5','Historia','6'),
+('6','Religia','5');
+
+
+
+
+INSERT INTO klasa (idklasa,klasa) VALUES
+('1','1Ti'),
+('2','2Ti'),
+('3','3Ti'),
+('4','4Ti'),
+('5','1Ts'),
+('6','2Ts'),
+('7','3Ti'),
+('8','4Ti');
+
+insert into uczeń (iduczeń,imie,nazwisko,idklasa) VALUES
+('1','Kamil','Buszman','4'),
+('2','Jan','Rekowski','4'),
+('3','Irek','Kechup','4'),
+('4','Kuba','Long','4'),
+('5','Jakub','Short','1'),
+('6','Karol','Blizniak','1'),
+('7','Bartek','Bielaszewski','1'),
+('8','Ewa','Kiniewicz','1'),
+('9','Wiktoria','Wałęsa','2'),
+('10','Weronika','Kuczkowska','2'),
+('11','Martyna','Lipa','3'),
+('12','Ewelina','Szklanka','3'),
+('13','Mateusz','Piechowski','5'),
+('14','Marcin','Tryba','5'),
+('15','Marek','Paszylk','6'),
+('16','Adam','Zdrojewski','6'),
+('17','Jakub','Gostomczyk','7'),
+('18','Grzegorz','Jaworski','7'),
+('19','Damian','Pendrak','8');
+
+
+insert into uzytkownicy(id,login,haslo) VALUES
+('1','Kamil','Buszman'),
+('2','Jan','Rekowski'),
+('3','Irek','Kechup'),
+('4','Kuba','Long'),
+('5','Jakub','Short'),
+('6','Karol','Blizniak'),
+('7','Bartek','Bielaszewski'),
+('8','Ewa','Kiniewicz'),
+('9','Wiktoria','Wałęsa'),
+('10','Weronika','Kuczkowska'),
+('11','Martyna','Lipa'),
+('12','Ewelina','Szklanka'),
+('13','Mateusz','Piechowski'),
+('14','Marcin','Tryba'),
+('15','Marek','Paszylk'),
+('16','Adam','Zdrojewski'),
+('17','Jakub','Gostomczyk'),
+('18','Grzegorz','Jaworski'),
+('19','Damian','Pendrak');
+
+
+insert into klasa_przedmiot (idklasa, idprzedmiot) VALUES
+('1','1'),('1','2'),('1','3'),('1','4'),('1','5'),('1','6'),
+('2','1'),('2','2'),('2','3'),('2','4'),('2','5'),('2','6'),
+('3','1'),('3','2'),('3','3'),('3','4'),('3','5'),('3','6'),
+('4','1'),('4','2'),('4','3'),('4','4'),('4','5'),('4','6'),
+('5','1'),('5','2'),('5','3'),('5','4'),('5','5'),('5','6'),
+('6','1'),('6','2'),('6','3'),('6','4'),('6','5'),('6','6'),
+('7','1'),('7','2'),('7','3'),('7','4'),('7','5'),('7','6'),
+('8','1'),('8','2'),('8','3'),('8','4'),('8','5'),('8','6');
+
+
+
+
+insert into nauczyciel_klasa (idnauczyciel,idklasa) VALUES
+('1','1'),('1','2'),('1','3'),('1','4'),('1','5'),('1','6'),
+('2','1'),('2','2'),('2','3'),('2','4'),('2','5'),('2','6'),
+('3','1'),('3','2'),('3','3'),('3','4'),('3','5'),('3','6'),
+('4','1'),('4','2'),('4','3'),('4','4'),('4','5'),('4','6'),
+('5','1'),('5','2'),('5','3'),('5','4'),('5','5'),('5','6'),
+('6','1'),('6','2'),('6','3'),('6','4'),('6','5'),('6','6');
+
+
+
+
+
+
