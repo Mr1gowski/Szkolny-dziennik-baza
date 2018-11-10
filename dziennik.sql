@@ -282,7 +282,7 @@ ALTER TABLE `uwagi`
 -- inserty danych
 
 
-
+alter table uczytkownicy add kolumn typ boolean;
 
 
 
@@ -339,26 +339,32 @@ insert into uczeń (iduczeń,imie,nazwisko,idklasa) VALUES
 ('19','Damian','Pendrak','8');
 
 
-insert into uzytkownicy(id,login,haslo) VALUES
-('1','Kamil','Buszman'),
-('2','Jan','Rekowski'),
-('3','Irek','Kechup'),
-('4','Kuba','Long'),
-('5','Jakub','Short'),
-('6','Karol','Blizniak'),
-('7','Bartek','Bielaszewski'),
-('8','Ewa','Kiniewicz'),
-('9','Wiktoria','Wałęsa'),
-('10','Weronika','Kuczkowska'),
-('11','Martyna','Lipa'),
-('12','Ewelina','Szklanka'),
-('13','Mateusz','Piechowski'),
-('14','Marcin','Tryba'),
-('15','Marek','Paszylk'),
-('16','Adam','Zdrojewski'),
-('17','Jakub','Gostomczyk'),
-('18','Grzegorz','Jaworski'),
-('19','Damian','Pendrak');
+insert into uzytkownicy(id,login,haslo, typ) VALUES
+('1','Kamil','Buszman','0'),
+('2','Jan','Rekowski','0'),
+('3','Irek','Kechup','0'),
+('4','Kuba','Long','0'),
+('5','Jakub','Short','0'),
+('6','Karol','Blizniak','0'),
+('7','Bartek','Bielaszewski','0'),
+('8','Ewa','Kiniewicz','0'),
+('9','Wiktoria','Wałęsa','0'),
+('10','Weronika','Kuczkowska','0'),
+('11','Martyna','Lipa','0'),
+('12','Ewelina','Szklanka','0'),
+('13','Mateusz','Piechowski','0'),
+('14','Marcin','Tryba','0'),
+('15','Marek','Paszylk','0'),
+('16','Adam','Zdrojewski','0'),
+('17','Jakub','Gostomczyk','0'),
+('18','Grzegorz','Jaworski','0'),
+('19','Damian','Pendrak','0'),
+('20','Jan','Kowalski','1'),
+('21','Ewa','Linda','1'),
+('22','Mikolaj','Majewski','1'),
+('23','Magda','Zwara','1'),
+('24','Daniel','Szada','1'),
+('25','Anita','Red','1');
 
 
 insert into klasa_przedmiot (idklasa, idprzedmiot) VALUES
