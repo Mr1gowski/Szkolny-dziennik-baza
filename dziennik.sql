@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 28 Paź 2018, 17:32
+-- Czas generowania: 11 Lis 2018, 12:21
 -- Wersja serwera: 10.1.30-MariaDB
 -- Wersja PHP: 7.2.2
 
@@ -21,19 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `dziennik`
 --
--- -------------------------------------------------------
 
--- sciana i tabela plan
-
-CREATE table planlekcji
-(
-idplan int AUTO_INCREMENT PRIMARY KEY NOT null,
-    idklasa int,
-    dzien int(6),
-    idprzedmiot int,
-    FOREIGN KEY (idklasa) REFERENCES klasa(idklasa),
-    FOREIGN KEY (idprzedmiot) REFERENCES przedmiot(idprzedmiot)
-);
 -- --------------------------------------------------------
 
 --
@@ -44,6 +32,13 @@ CREATE TABLE `klasa` (
   `idklasa` int(11) NOT NULL,
   `klasa` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `klasa`
+--
+
+INSERT INTO `klasa` (`idklasa`, `klasa`) VALUES
+(1, '3TI');
 
 -- --------------------------------------------------------
 
@@ -68,6 +63,13 @@ CREATE TABLE `nauczyciel` (
   `nazwisko` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `nauczyciel`
+--
+
+INSERT INTO `nauczyciel` (`idnauczyciel`, `imie`, `nazwisko`) VALUES
+(1, 'Kiemon', 'Ziom');
+
 -- --------------------------------------------------------
 
 --
@@ -78,6 +80,13 @@ CREATE TABLE `nauczyciel_klasa` (
   `idnauczyciel` int(11) DEFAULT NULL,
   `idklasa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `nauczyciel_klasa`
+--
+
+INSERT INTO `nauczyciel_klasa` (`idnauczyciel`, `idklasa`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -94,6 +103,13 @@ CREATE TABLE `oceny` (
   `idnauczyciel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `oceny`
+--
+
+INSERT INTO `oceny` (`idoceny`, `oceny`, `iduczeń`, `idklasa`, `idprzedmiot`, `idnauczyciel`) VALUES
+(1, '5', 1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +121,13 @@ CREATE TABLE `przedmiot` (
   `przedmiot` varchar(20) DEFAULT NULL,
   `idnauczyciel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `przedmiot`
+--
+
+INSERT INTO `przedmiot` (`idprzedmiot`, `przedmiot`, `idnauczyciel`) VALUES
+(1, 'Polski', 1);
 
 -- --------------------------------------------------------
 
@@ -119,6 +142,25 @@ CREATE TABLE `uczeń` (
   `idklasa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `uczeń`
+--
+
+INSERT INTO `uczeń` (`iduczeń`, `imie`, `nazwisko`, `idklasa`) VALUES
+(1, 'Adek', 'Zsm', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `uwagi`
+--
+
+CREATE TABLE `uwagi` (
+  `opis` varchar(200) DEFAULT NULL,
+  `idnauczyciel` int(11) DEFAULT NULL,
+  `iduczeń` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -127,9 +169,19 @@ CREATE TABLE `uczeń` (
 
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL,
-  `login` varchar(20) NOT NULL,
-  `haslo` varchar(20) NOT NULL
+  `login` varchar(25) NOT NULL,
+  `haslo` varchar(25) NOT NULL,
+  `typ` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `uzytkownicy`
+--
+
+INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `typ`) VALUES
+(1, 'Jan', 'Nowak', b'1'),
+(2, 'Tomasz', 'Drab', b'1'),
+(3, 'Wojtek', 'Ram', b'0');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -186,6 +238,13 @@ ALTER TABLE `uczeń`
   ADD KEY `idklasa` (`idklasa`);
 
 --
+-- Indeksy dla tabeli `uwagi`
+--
+ALTER TABLE `uwagi`
+  ADD KEY `idnauczyciel` (`idnauczyciel`),
+  ADD KEY `iduczeń` (`iduczeń`);
+
+--
 -- Indeksy dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
@@ -199,37 +258,37 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `klasa`
 --
 ALTER TABLE `klasa`
-  MODIFY `idklasa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idklasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `nauczyciel`
 --
 ALTER TABLE `nauczyciel`
-  MODIFY `idnauczyciel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idnauczyciel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `oceny`
 --
 ALTER TABLE `oceny`
-  MODIFY `idoceny` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idoceny` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `przedmiot`
 --
 ALTER TABLE `przedmiot`
-  MODIFY `idprzedmiot` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idprzedmiot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `uczeń`
 --
 ALTER TABLE `uczeń`
-  MODIFY `iduczeń` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iduczeń` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -269,6 +328,13 @@ ALTER TABLE `przedmiot`
 --
 ALTER TABLE `uczeń`
   ADD CONSTRAINT `uczeń_ibfk_1` FOREIGN KEY (`idklasa`) REFERENCES `klasa` (`idklasa`);
+
+--
+-- Ograniczenia dla tabeli `uwagi`
+--
+ALTER TABLE `uwagi`
+  ADD CONSTRAINT `uwagi_ibfk_1` FOREIGN KEY (`idnauczyciel`) REFERENCES `nauczyciel` (`idnauczyciel`),
+  ADD CONSTRAINT `uwagi_ibfk_2` FOREIGN KEY (`iduczeń`) REFERENCES `uczeń` (`iduczeń`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
