@@ -1,0 +1,242 @@
+body
+	{
+		background-color:grey;
+
+
+	}
+
+#container
+	{
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: auto;
+
+
+	}
+
+
+#logo
+	{
+		border-radius: 10px;
+		background-color: #d1d2df;
+		text-align: center;
+		height: 150px;
+	  width: 90%;
+		float:left;
+
+
+
+	}
+
+
+
+#nav
+	{
+	float:left;
+		float: left;
+		width: 15%;
+		height: 625px;
+	    color: white;
+
+		margin-top: 10px;
+		min-width: 100px;
+
+	}
+
+#content
+	{
+		float: center;
+		width: 85%;
+		font-size: 15px;
+		margin-top: 10px;
+		text-align: center;
+
+
+
+
+	}
+
+#strona_glowna
+	{
+		float: bottom;
+		margin: 3px;
+		height: 50px;
+		text-align: center;
+		color: #d1d2df;
+		background-color: #696969;
+		display: block;
+		text-decoration: none;
+
+	}
+
+
+#plan
+	{
+		float: bottom;
+		margin: 3px;
+		height: 50px;
+		text-align: center;
+		color: #d1d2df;
+		background-color: #696969;
+		display: block;
+		text-decoration: none;
+
+	}
+	#terminarz
+	{
+		float: bottom;
+		margin: 3px;
+		height: 50px;
+		text-align: center;
+		color: #696969;
+		background-color: #d1d2df;
+		display: block;
+		text-decoration: none;
+	}
+
+#oceny
+	{
+		float: bottom;
+		margin: 2px;
+		height: 50px;
+		color: #696969;
+		text-align: center;
+		background-color: #d1d2df;
+		display: block;
+		text-decoration: none;
+	}
+
+#nieobecnosci
+	{
+		float: bottom;
+		display: block;
+		height: 50px;
+		text-align: center;
+		color: #d1d2df;
+		background-color: #696969;
+		margin: 3px;
+		text-decoration: none;
+	}
+
+  #wyloguj
+  {
+    float: bottom;
+    margin: 2px;
+    height: 50px;
+    color: #696969;
+    text-align: center;
+    background-color: #d1d2df;
+    display: block;
+    text-decoration: none;
+
+  }
+
+
+#kontakt
+	{
+		float: bottom;
+		height: 300px;
+
+		text-align: center;
+		color: #d1d2df;
+		font-size: 16px;
+		background-color:#696969;
+		margin: 3px;
+		display: block;
+		text-decoration: none;
+	}
+
+
+
+
+#a
+	{
+	clear:both;
+	background-color: rgba(  209, 210, 223, 0.8);
+	margin-top: 35%;
+	margin-left: 5%;
+	margin-right: 5% ;
+	text-align: center;
+	padding: 5%;
+	font-size: 40px;
+
+	}
+
+	#footer
+	{
+		margin: 3px;
+		margin-top: 10px;
+		clear: both;
+		height:50px;
+		background-color: #d1d2df;
+		border-radius: 10px;
+		text-align: center;
+		padding-top: 10px;
+		min-width: 750px;
+	}
+
+/* logowanie */
+#panel {
+width: 400px;
+margin: 0 auto;
+padding: 15px 0 0;
+background: #fff;
+border: 1px solid silver;
+font: 16px calibri;
+letter-spacing: -1px;
+-webkit-box-shadow: 0 0 2px silver;
+-moz-box-shadow: 0 0 2px silver;
+box-shadow: 0 0 2px silver;
+}
+form {
+margin: 0;
+}
+
+label {
+display: block;
+width: 260px;
+padding: 10px 20px;
+color: #696969;
+font-size: 16px;
+text-shadow: 0 0 1px silver;
+}
+#username, #password {
+display: block;
+width: 360px;
+margin: 0 auto;
+padding: 10px 5px;
+border: 1px solid silver;
+outline: 5px solid #ebebeb;
+font-size: 22px;
+}
+#username:focus, #password:focus {
+outline: 5px solid #e5f2f8;
+}
+#lower {
+background: #ecf2f5;
+width: 360px;
+padding: 5px 20px;
+margin-top: 20px;
+}
+.check {
+display: inline;
+float: none;
+font-size: 11px;
+padding: 5px;
+}
+input[type="submit"] {
+width: 70px;
+padding: 5px 13px;
+border: 1px solid #005f85;
+color: white;
+text-shadow: 0 0 1px black;
+background: #98c9dc;
+position: relative;
+left: 180px;
+}
+#panel, input[type="submit"] {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
