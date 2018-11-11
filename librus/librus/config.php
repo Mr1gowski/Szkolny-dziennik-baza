@@ -8,27 +8,37 @@ else
 {
   $login=$_POST['login'];
   $haslo=$_POST['haslo'];
-  $sql_n="select * FROM uzytkownicy where login=''$login' AND haslo= '$haslo'AND typ='1'"
-  $sql_u="select * FROM uzytkownicy where login=''$login' AND haslo= '$haslo'AND typ='0'"
-    if ($result=$polaczenie->query($sql_n))
+  $sql="select * FROM uzytkownicy where login=''$login' AND haslo= '$haslo'";
+    if ($result=$polaczenie->query($sql))
         {
+          $log=$result->fetch_assoc();
+          $_SESSION['typ']=$log['typ'];
           $_SESSION['zalogowany']=true;
-          include_once 'strona_glowna_nauczyciel';
-            unset($_SESSION['blad']);
-          $result->close();
-        }
-      else if($result=$polaczenie->query($sql_u))
+          if ($log['typ']==1)
+           {
+
+             header("Location:strona_glowna_nauczyciel");
+             unset($_SESSION['blad']);
+             $result->close();
+          }
+
+
+      else if ($log['typ']==0)
         {
-            $_SESSION['zalogowany1']=true;
-          include_once 'strona_glowna_uczen';
-            unset($_SESSION['blad']);
+
+          header("Location:strona_glowna_uczen");
+          unset($_SESSION['blad']);
           $result->close();
+
+
         }
-        else {
-          $_SESSION['blad']='<span style"color:red">spell red</span>';
-          header('Location:index.php');
-        }
+        else
+          {
+            $_SESSION['blad']='<span style"color:red">spell red</span>';
+            header('Location:index.php');
+           }
   $polaczenie->close();
+    }
 }
 
 
