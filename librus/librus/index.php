@@ -3,9 +3,13 @@
 session_start();
 if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
 {
-header('Location:config.php')
-
+header('Location:strona_glowna_nauczyciel.php')
+exit();
 }
+else if ((isset($_SESSION['zalogowany1'])) && ($_SESSION['zalogowany1']==true))
+{
+header('Location:strona_glowna_uczen.php')
+exit();
 ?>
 
 <!DOCTYPE html>
@@ -31,12 +35,7 @@ header('Location:config.php')
 
 
 
-	<!--	<form method="POST" action="logowanie.php">
-<b>Login:</b> <input type="text" name="login"><br>
-<b>Hasło:</b> <input type="password" name="haslo"><br>
-<input type="submit" value="Zaloguj" name="loguj">
-</form>
--->
+
 		<div id="content" >
 
 
