@@ -2,14 +2,15 @@
 <?php
 session_start();
 if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
-{
-header('Location:strona_glowna_nauczyciel.php')
-exit();
-}
+	{
+		header('Location:strona_glowna_nauczyciel.php');
+		exit();
+	}
 else if ((isset($_SESSION['zalogowany1'])) && ($_SESSION['zalogowany1']==true))
-{
-header('Location:strona_glowna_uczen.php')
-exit();
+	{
+		header('Location:strona_glowna_uczen.php');
+		exit();
+	}
 ?>
 
 <!DOCTYPE html>
